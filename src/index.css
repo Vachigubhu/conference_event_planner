@@ -1,42 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* ===== Main Brand Colors ===== */
+  --primary: #0f2f52;
+  --primary-dark: #091f38;
+  --primary-light: #1c4d7d;
+
+  --accent: #d9a441;
+  --accent-light: #f1c96b;
+  --accent-dark: #b8862d;
+
+  /* ===== Backgrounds ===== */
+  --background: #f4f7fb;
+  --surface: #ffffff;
+  --surface-secondary: #eef3f8;
+
+  /* ===== Text ===== */
+  --text: #172033;
+  --text-secondary: #64748b;
+  --text-light: #94a3b8;
+
+  /* ===== Borders ===== */
+  --border: #dfe6ee;
+
+  /* ===== Status ===== */
+  --success: #198754;
+  --danger: #dc3545;
+
+  /* ===== Shadows ===== */
+  --shadow-sm: 0 2px 8px rgba(15, 47, 82, 0.06);
+  --shadow-md: 0 8px 25px rgba(15, 47, 82, 0.10);
+  --shadow-lg: 0 20px 50px rgba(15, 47, 82, 0.15);
+
+  /* ===== Border Radius ===== */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+
   line-height: 1.5;
   font-weight: 400;
 
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
+  color: var(--text);
+  background-color: var(--background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-color: var(--background);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
 a:hover {
-  color: #535bf2;
+  color: var(--accent-dark);
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
+
+/* =========================================
+   BUTTONS
+========================================= */
+
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-sm);
+
+  padding: 0.75rem 1.4rem;
+
+  font-size: 1rem;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+
+  background-color: var(--primary);
+  color: white;
+
   cursor: pointer;
-  transition: border-color 0.25s;
-  color: #fff;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
 button:hover {
-  border-color: #646cff;
+  background-color: var(--primary-light);
+
+  transform: translateY(-1px);
+
+  box-shadow: var(--shadow-sm);
 }
+
+button:active {
+  transform: translateY(0);
+}
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 3px solid rgba(217, 164, 65, 0.35);
+  outline-offset: 2px;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+input,
+select,
+textarea {
+  font-family: inherit;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  background: var(--surface);
+  color: var(--text);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+
+  border-color: var(--primary-light);
+
+  box-shadow:
+    0 0 0 3px rgba(28, 77, 125, 0.12);
+}
+
+
+/* =========================================
+   IMAGES
+========================================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================================
+   SELECTION
+========================================= */
+
+::selection {
+  background: var(--accent);
+  color: var(--primary-dark);
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b8c3d1;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
 }
